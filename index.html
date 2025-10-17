@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="ru">
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -8,16 +8,127 @@
 
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
+		<link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/white.css">
+		<!-- Custom controls plugin -->
+		<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/customcontrols/plugin.js"></script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/customcontrols/style.css">
 
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+		
+		<style>
+		.hr-title {
+		display: flex;
+		align-items: center;
+		text-align: center;
+		font-weight: bold;
+		width: 110%;
+		margin: 1em 0;
+		font-size: 1.1em;  /* можно регулировать */
+		}
+		.hr-title::before,
+		.hr-title::after {
+		content: "";
+		flex: 1;
+		border-bottom: 2px solid #666; /* цвет линии под стиль темы */
+		margin: 0 .75em;               /* отступы от текста */
+		}
+		hr {
+		border: none;            /* убираем стандартную границу */
+		border-top: 2px solid #666; /* толщина и цвет линии */
+		margin: 0.5em;           /* отступы сверху и снизу */
+		}
+		</style>
+
 	</head>
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section>	
+					<h2>ПЕРИОДИЧЕСКИЕ РАДИОСИГНАЛЫ</h2>
+				</section>
+					
+				<section>
+					<h4>Период радиосигнала</h4>
+					<section><p>
+					<img data-src="image6.png" width="400">
+					<br>
+					Период комплексной огибающей (КО) $T$ — это наименьшее число, которое делится нацело на периоды огибающей и мгновенной фазы: $T = nT_v = kT_\varphi$. Период радиосигнала — это наименьшее число, которое делится нацело на период КО и период несущей: $T_u = lT = mT_{\omega_0}$. Так как $T \gg T_{\omega_0}$, то обычно полагают $T_u \approx T$.
+					</p></section>
+					<section><p>
+					$$
+					\begin{aligned}
+					u_п(t) &= v_п(t)\cos(\omega_0 t + \varphi_п(t)) \\
+					\end{aligned}
+					$$
+					<hr>
+					$v_п(t)\geq 0$ — огибающая радиосигнала <br>
+					$\omega_0$ — несущая частота (частота несущего колебания)<br>
+					$\varphi_п(t)$ — мгновенная фаза радиосигнала
+					</p></section>
+					<section><p>
+						$$
+					\begin{aligned}
+					u_п(t) &= \operatorname{Re} \dot{v}_п(t) e^{j\omega_0 t} = \frac{\dot{v}_п(t) e^{j\omega_0 t} + \dot{v}_п^*(t) e^{-j\omega_0 t}}{2}
+					\end{aligned}
+					$$
+					<hr>
+					$\dot{v}_п(t)=v_п(t)e^{ j \varphi_п}(t)$ - комплексная огибающая радиосигнала (КО)<br>
+					$\omega_п(t)=\Phi'_п=\omega_0+\varphi_п'(t)$ — мгновенная частота радиосигнала<br>
+					$\Phi_п(t)=\omega_0 t+\varphi_п(t)$ — полная фаза радиосигнала
+					</p></section>
+				</section>
+					
+				<section>
+					<h4>Спектр радиосигнала</h4>
+					<section><p	style="text-align:center; font-size:0.8em;">
+					$$\begin{aligned}
+					\dot{v}_п(t) &= \sum_{n=-\infty}^{+\infty} \dot{U}_n e^{j\Omega_n t} \\
+					\Omega_n &= n\Omega_1, \quad \Omega_1 = \frac{2\pi}{T}, \quad \dot{U}_n = U_n e^{j\varphi_{U_n}}\\
+					\end{aligned}$$
+					<hr>
+					$u_п(t) = \sum_{n=-\infty}^{+\infty} U_n \cos\left((\omega_0 + \Omega_n)t + \varphi_{U_n}\right)$
+					</p></section>
+					<section><img 	data-src="image.png" width="500"></section>
+					<section><div style="font-size:0.8em;display: flex; justify-content: space-between; gap: 1em;">
+						<div style="flex: 1; text-align: center;">Амплитудный спектр в комплексном базисе<br>$$\{U_п(t)\}_{n=-\infty}^{+\infty}$$</div>
+						<div style="flex: 1;">Фазовый спектр в комплексном базисе<br>$$\{\varphi_{U_п}(t)\}_{n=-\infty}^{+\infty}$$</div>
+					</div></section>
+					<section>Комплексная огибающая: спектральные линии располагаются на частотах $$\{\Omega_п(t)\}_{n=-\infty}^{+\infty}$$</section>
+					<section>$u_п(t) = \sum_{n=-\infty}^{+\infty} U_n \cos\left((\omega_0 + \Omega_n)t + \varphi_{U_n}\right)$  Амплитудный и фазовый спектры радиосигнала и его КО отличаются только расположением на частотной оси</section>
+					<section>Радиосигнал: спектральные линии располагаются на частотах $\{\omega_0 + \Omega_n\}_{n=-\infty}^{+\infty}$</section>
+					<section><div style="font-size:0.8em;display: flex; justify-content: space-between; gap: 1em;">
+						<div style="flex: 1; text-align: center;">Амплитудный спектр в триг. базисе<br>$$\{U_п(t)\}_{n=-\infty}^{+\infty}$$</div>
+						<div style="flex: 1;">Фазовый спектр в триг. базисе<br>$$\{\varphi_{U_п}(t)\}_{n=-\infty}^{+\infty}$$</div>
+					</div></section>
+					<section><div style="font-size:0.8em;display: flex; justify-content: space-between; gap: 1em;">
+						<div style="flex: 1; text-align: center;"><img data-src="image.png"></div>
+						<div style="flex: 1;"><div class="hr-title" style="font-size:0.7em">НБП и ВБП</div><p style="font-size:0.7em">  Область частот, в которой располагаются линии спектра радиосигнала, соответствующие частотам меньшим несущей частоты, называется <b>нижней боковой полосой спектра (НБП)</b>. Область частот, в которой располагаются линии спектра радиосигнала, соответствующие частотам большим несущей частоты, называется <b>верхней боковой полосой спектра (ВБП)</b>.</p><div class="hr-title" style="font-size:0.7em">Ширина спектра радиосигнала</div><p style="font-size:0.7em">Ширина спектра периодического радиосигнала равна ширине спектра его комплексной огибающей в комплексном гармоническом базисе.</p></div>
+					</div></section>
+				</section>
+
+				<section>
+					<h4>Спектр периодического радиосигнала без угловой модуляции</h4>
+					<section></section>
+				    <section></section>
+					<div style="font-size:0.8em;display: flex; justify-content: space-between; gap: 1em;">
+						<div style="flex: 1; text-align: center;"></div>
+						<div style="flex: 1;"></div>
+					</div>
+					</section>
+				</section>
+
+				<section>
+					<h2>Основы</h2>
+					<section>Слайд 1.1</section>
+					<section>Слайд 1.2</section>
+				</section>
+					
+				<section>
+					<h4></h4>
+					<p></p>
+				</section>
+				
 			</div>
 		</div>
 
@@ -25,15 +136,17 @@
 		<script src="plugin/notes/notes.js"></script>
 		<script src="plugin/markdown/markdown.js"></script>
 		<script src="plugin/highlight/highlight.js"></script>
+		<script src="plugin/math/math.js"></script>
 		<script>
 			// More info about initialization & config:
 			// - https://revealjs.com/initialization/
 			// - https://revealjs.com/config/
 			Reveal.initialize({
 				hash: true,
-
+				transition: 'slide',	
+				
 				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealCustomControls, RevealMath.KaTeX ]
 			});
 		</script>
 	</body>
