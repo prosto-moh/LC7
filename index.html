@@ -109,24 +109,70 @@
 
 				<section>
 					<h4>Спектр периодического радиосигнала без угловой модуляции</h4>
-					<section></section>
-				    <section></section>
+				    <section>
 					<div style="font-size:0.8em;display: flex; justify-content: space-between; gap: 1em;">
-						<div style="flex: 1; text-align: center;"></div>
-						<div style="flex: 1;"></div>
+						<div style="flex: 1; text-align: center;">
+						<br>
+						$$\footnotesize
+						\begin{aligned}
+						\varphi_{v_{\text{п}}}(t) &= \varphi_0 \\
+						
+						\dot{v}_{\text{п}}(t) &= v_{\text{п}}(t) e^{j\varphi_0} \\
+						
+						v_{\text{п}}(t) &= V_0 + \sum_{n=1}^{+\infty} V_n \cos(\Omega_n t + \varphi_{V_n}) \\
+						
+						\dot{v}_{\text{п}}(t) &= \sum_{n=-\infty}^{+\infty} \dot{U}_n e^{j\Omega_n t} \\
+						\end{aligned}$$</div>
+
+						<div style="flex: 1; font-size: 0.6em ;">
+						<br>	
+						$$ \begin{aligned}
+						\dot{U}_0 &= V_0 e^{j\varphi_0} \quad \dot{U}_n = \frac{V_{|n|}}{2} e^{j(\varphi_{V_{|n|}} \operatorname{sign}(n) + \varphi_0)} \quad U_0 = V_0 \\
+						
+						U_n &= \frac{V_{|n|}}{2} \quad \varphi_{U_0} = \varphi_0 \quad \varphi_{U_n} = \varphi_{V_{|n|}} \operatorname{sign}(n) + \varphi_0 \\
+						
+						u_{\text{п}}(t) &= \sum_{n=-\infty}^{+\infty} U_n \cos\left((\omega_0 + \Omega_n)t + \varphi_{U_n}\right) = \\
+						&= V_0 \cos\left(\omega_0 t + \varphi_0\right) + \\
+						&\quad + \sum_{n=1}^{+\infty} \frac{V_n}{2} \cos\left((\omega_0 + \Omega_n)t + \varphi_0 + \varphi_{V_n}\right) + \\
+						&\quad + \sum_{n=1}^{+\infty} \frac{V_n}{2} \cos\left((\omega_0 - \Omega_n)t + \varphi_0 - \varphi_{V_n}\right)
+						\end{aligned}$$</div>
 					</div>
 					</section>
+					<section>
+						<img data-src="image2.png" width="500">
+					</section>
+					<section>
+						<div style="font-size:0.8em;display: flex; justify-content: space-between; gap: 1em;">
+							<div style="flex: 1; text-align: center;">Амплитудный спектр в тригонометрическом базисе <br>$\{V_n\}_{n=0}^{+\infty}$</div>
+							<div style="flex: 1;">Фазовый спектр в тригонометрическом базисе <br> $\{\varphi_{V_n}\}_{n=0}^{+\infty}$</div>
+						</div>
+					</section>	
+					<section>Огибающая: спектральные линии располагаются на частотах <br>$\{\Omega_n\}_{n=0}^{+\infty}$</section>
+					<section>Введение чётной симметрии в амплитудный спектр огибающей и умножение на $\frac{1}{2}$ . Введение нечётной симметрии в фазовый спектр огибающей.</section>
+					<section>Радиосигнал: спектральные линии располагаются на частотах<br>$\{\omega_0 + \Omega_n\}_{n=0}^{+\infty}$</section>
+					<section>
+						<div style="font-size:0.8em;display: flex; justify-content: space-between; gap: 1em;">
+							<div style="flex: 1; text-align: center; font-size:1em">Амплитудный спектр в тригонометрическом базисе <br>$\{V_n\}_{n=0}^{+\infty}$<br>$U_0 = V_0; $<br>$\quad U_n = \frac{V_{|n|}}{2}$</div>
+							<div style="flex: 1; font-size:1em"">Фазовый спектр в тригонометрическом базисе <br> $\{\varphi_{V_n}\}_{n=0}^{+\infty}$<br>$\varphi_{U_0} = \varphi_0;$<br>$\varphi_{U_n} = \varphi_{|n|} \operatorname{sign}(n) + \varphi_0$</div>
+						</div>
+					</section>	
 				</section>
 
 				<section>
-					<h2>Основы</h2>
-					<section>Слайд 1.1</section>
-					<section>Слайд 1.2</section>
+					<h4> Средняя мощность радиосигнала за его период</h4>
+					<p>
+					$$
+					\begin{aligned}
+					P = \frac{1}{2} P_v = \frac{1}{2} \sum_{n=-\infty}^{+\infty} U_n^2 = \frac{1}{2} \left( V_0^2 + \frac{1}{2} \sum_{n=1}^{+\infty} V_n^2 \right)		
+					\end{aligned}$$
 				</section>
 					
 				<section>
-					<h4></h4>
-					<p></p>
+					<h4>Средняя мощность периодического радиосигнала</h4>
+					<div style="font-size:0.8em;display: flex; justify-content: space-between; gap: 1em;">
+							<div style="flex: 1; text-align: center; font-size:1em">Средняя мощность периодического радиосигнала за его период равна половине средней мощности его огибающей<br>$P=\frac{1}{2}P_v$</div>
+							<div style="flex: 1; font-size:1em"">Средняя мощность радиосигнала за период его несущего колебания равна половине мгновенной мощности его огибающей <br> $P_{T_0}(t)=\frac{1}{2}v_п^2(t)$</div>
+					</div>
 				</section>
 				
 			</div>
